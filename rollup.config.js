@@ -5,6 +5,7 @@ import del from "rollup-plugin-delete";
 import { typescriptPaths } from "rollup-plugin-typescript-paths";
 import ts from "rollup-plugin-ts";
 import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 
 /** @type {import('rollup').RollupOptions} */
 const options = {
@@ -35,6 +36,9 @@ const options = {
         json(),
         eslint(),
         resolve(),
+        commonjs({
+            requireReturnsDefault: "auto",
+        }),
     ],
 };
 
